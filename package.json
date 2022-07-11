@@ -6,13 +6,16 @@
   "license": "MIT",
   "author": "Rafflebox",
   "engines": {
-    "node": "^14 || ^16"
+    "node": "^16"
   },
   "scripts": {
-    "clean": "rm -rf build/",
+    "clean": "rm -rf dist",
     "build": "yarn clean && tsc",
     "lint": "eslint \"**/*.{ts,js}\"",
-    "format": "prettier --write \"**/*.{ts,js,json,md,yml}\""
+    "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+    "dist": "yarn build:compact && yarn package",
+    "build:compact": "yarn build && find ./dist -name \"aws-sdk\" | xargs rm -r && rm dist/tsconfig.tsbuildinfo",
+    "package": "rm -f dist.zip && cd dist && zip -qq -r ../dist.zip **"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
