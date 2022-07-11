@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "incremental": true,
-    "strictPropertyInitialization": false,
+    "target": "es2020",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es2019",
-    "noImplicitAny": true,
     "moduleResolution": "node",
-    "inlineSourceMap": true,
-    "outDir": "build",
+    "lib": ["es2020", "DOM"],
+    "esModuleInterop": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
     "baseUrl": ".",
-    "typeRoots": ["src/types", "node_modules/@types"],
+    "declaration": true,
+    "preserveConstEnums": true,
+    "noImplicitAny": true,
     "paths": {
       "*": ["node_modules/*"]
-    }
+    },
+    "types": ["node"],
+    "outDir": "build",
+    "typeRoots": ["src/types", "node_modules/@types"]
   },
   "include": ["src/**/*.ts"]
 }
