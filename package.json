@@ -1,0 +1,30 @@
+{
+  "name": "@rafflebox-technologies-inc/lambda-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A simple example of a quick start for a new project",
+  "license": "MIT",
+  "author": "Rafflebox",
+  "engines": {
+    "node": "^16"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "yarn clean && tsc",
+    "lint": "eslint \"**/*.{ts,js}\"",
+    "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+    "dist": "yarn build:compact && yarn package",
+    "build:compact": "yarn build && find ./dist -name \"aws-sdk\" | xargs rm -r && rm dist/tsconfig.tsbuildinfo",
+    "package": "rm -f dist.zip && cd dist && zip -qq -r ../dist.zip **"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "ts-node": "^10.8.2",
+    "eslint": "^7.0.0",
+    "husky": "~4.3.8",
+    "lint-staged": "~12.3.8",
+    "prettier": "~2.6.2",
+    "typescript": "~4.7.4",
+    "eslint-config-rafflebox": "~0.2.0"
+  }
+}
