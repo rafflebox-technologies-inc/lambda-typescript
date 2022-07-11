@@ -14,21 +14,6 @@
     "lint": "eslint \"**/*.{ts,js}\"",
     "format": "prettier --write \"**/*.{ts,js,json,md,yml}\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js}": [
-      "eslint --max-warnings 100",
-      "git add"
-    ],
-    "*.{ts,js,json,md,yml}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "devDependencies": {
     "@types/node": "^18.0.3",
     "ts-node": "^10.8.2",
