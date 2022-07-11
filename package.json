@@ -1,5 +1,5 @@
 {
-  "name": "@rafflebox-technologies-inc/quick-start",
+  "name": "@rafflebox-technologies-inc/lambda-typescript",
   "version": "1.0.0",
   "main": "index.js",
   "description": "A simple example of a quick start for a new project",
