@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "incremental": true,
+    "strictPropertyInitialization": false,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es2019",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "outDir": "build",
+    "baseUrl": ".",
+    "typeRoots": ["src/types", "node_modules/@types"],
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
