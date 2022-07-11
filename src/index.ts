@@ -10,7 +10,7 @@ const handler = async function (event: { path: string }): Promise<Response> {
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'text/plain' },
-    body: `Hello, CDK! You've hit ${event.path}\n`,
+    body: `Hello, World! You've hit ${event.path}\n`,
   };
 };
 
