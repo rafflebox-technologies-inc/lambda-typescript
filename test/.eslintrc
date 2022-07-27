@@ -1,0 +1,6 @@
+{
+    "rules": {
+      "func-names": "off"
+    }
+  }
+  

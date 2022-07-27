@@ -9,22 +9,29 @@
     "node": "^16"
   },
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "yarn clean && tsc",
+    "clean": "rm -rf build",
+    "build": "tsc",
     "lint": "eslint \"**/*.{ts,js}\"",
     "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
+    "test": "TZ=UTC NODE_ENV=unittest jest --detectOpenHandles",
     "dist": "yarn build:compact && yarn package",
-    "build:compact": "yarn build && find ./dist -name \"aws-sdk\" | xargs rm -r && rm dist/tsconfig.tsbuildinfo",
-    "package": "rm -f dist.zip && cd dist && zip -qq -r ../dist.zip **"
+    "build:compact": "yarn build && find ./build -name \"aws-sdk\" | xargs rm -r && rm build/tsconfig.tsbuildinfo",
+    "package": "rm -f build.zip && cd build && zip -qq -r ../build.zip **",
+    "postbuild": "cp package.json build/package.json && cp config.*.js build/ && rm -f build/config.local.js && cd build && yarn install --production --no-lockfile",
+    "dev": "NODE_ENV=development node -r ts-node/register scripts/index.ts"
   },
   "devDependencies": {
-    "@types/node": "^18.0.3",
-    "ts-node": "^10.8.2",
-    "eslint": "^7.0.0",
-    "husky": "~4.3.8",
-    "lint-staged": "~12.3.8",
+    "@types/jest": "~27.4.1",
+    "@types/jest-when": "~3.5.2",
+    "@types/node": "~18.0.3",
+    "eslint": "~7.0.0",
+    "eslint-config-rafflebox": "~0.2.0",
+    "jest": "~27.5.1",
+    "jest-when": "~3.5.1",
+    "nock": "~13.2.9",
     "prettier": "~2.6.2",
-    "typescript": "~4.7.4",
-    "eslint-config-rafflebox": "~0.2.0"
+    "ts-jest": "~27.1.4",
+    "ts-node": "~10.8.2",
+    "typescript": "~4.7.4"
   }
 }
